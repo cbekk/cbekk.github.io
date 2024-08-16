@@ -10,13 +10,6 @@ body {
     color: #fff;
 }
 
-.homephoto {
-    width: 30%;
-    border-radius: 10px;
-    float: right;
-    margin-left: 20px;
-}
-
 html {
     scroll-behavior: smooth;
 }
@@ -37,10 +30,6 @@ nav {
     flex-wrap: wrap;
 }
 
-.logo {
-    margin: 20px 30px;
-    width: 340px;
-}
 
 nav ul li {
     display: inline-block;
@@ -112,24 +101,51 @@ nav ul li a:hover::after {
     flex-wrap: wrap;
 }
 
+
+.homephoto {
+    width: 270px; 
+    height: 270px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #54ba85;
+    box-sizing: border-box;
+    display: inline-block;
+    float: right;
+    margin-right: 60px;
+    margin-top: 170px;
+    transition: filter 0.5s ease-in-out;
+}
+
+.homephoto:hover{
+    filter: sepia(100%) saturate(200%) brightness(80%) hue-rotate(110deg);
+}
+
+.myphoto {
+    transition: filter 0.5s ease-in-out;
+}
+
+.myphoto:hover{
+    filter: sepia(100%) saturate(200%) brightness(80%) hue-rotate(110deg);
+}
+
 .about-col1 {
     flex-basis: 35%;
 }
 
 .about-col1 img {
     width: 100%;
-    filter: grayscale(0%) brightness(100%) sepia(0%) hue-rotate(0deg);
     border: 3px solid #54ba85;
     border-radius: 10px;
 }
 
-.about-col1 img:hover {
-    filter: sepia(100%) saturate(200%) brightness(80%) hue-rotate(110deg);
+.logo {
+    margin: 20px 30px;
+    width: 340px;
+    transition: filter 0.5s ease-in-out;
 }
 
 .logo:hover {
     filter: sepia(90%) saturate(750%) brightness(70%) hue-rotate(60deg);
-    transition: filter 0.5s ease-in-out;
 }
 
 .about-col2 {
