@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/efdc1e0b81.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div id="header">
+        <div class="container">
+            <nav>
+                <img src="logo.png" class="logo">
+                <ul id="sidemenu">
+                    <li><a href="#home"><span>1.</span> Home</a></li>
+                    <li><a href="#about"><span>2.</span> About</a></li>
+                    <li><a href="#projects"><span>3.</span> Projects</a></li>
+                    <li><a href="#contact"><span>4.</span> Contact</a></li>
+                    <i class="fas fa-solid fa-times" onclick="closemenu()"></i>
+                </ul>
+                <i class="fas fa-solid fa-bars" onclick="openmenu()"></i>
+            </nav>
+            <img src="jungle.jpg" class="homephoto">
+            <div class="header-text">
+                <h1><span>C</span>hristiana <span>N</span>ardi</h1>
+                <p>Major in Computer Science <span class="blink">_</span></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ABOUT -->
+    <div id="about">
+        <div class="container">
+            <div class="row">
+                <div class="about-col1">
+                    <img src="myphoto.jpeg" class="myphoto">
+                </div>
+                <div class="about-col2">
+                    <h1 class="sub-title"><span>A</span>bout <span>M</span>e</h1>
+                    <p>Hey there! I'm <span>Christiana</span>, a third-year Computer Science major at Virginia
+                        Commonwealth University. My strong passion for <span>learning</span> and <span>creating</span>
+                        has brought me down the path of digital technologies. My experience includes working with
+                        Javascript, HTML, CSS, C#, and Java, to name a few. I strive to create efficient and ergonomic
+                        programs that make for seamless user experiences. When I'm not at my computer, I'm at my
+                        <span>canvas</span>. There, I work on my <span>side</span>-<span>business</span>— creating
+                        portraits of many beloved family pets.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PROJECTS -->
+    <div id="projects">
+        <div class="container">
+            <h1 class="sub-title"><span>M</span>y <span>W</span>ork</h1>
+            <div class="work-list">
+                <div class="work">
+                    <img src="photo1.png">
+                    <div class="layer">
+                        <h3>Your Prison Escape</h3>
+                        <a href="https://cnardi.itch.io/your-prison-escape"><i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+                <div class="work">
+                    <img src="ttt-icon.png">
+                    <div class="layer">
+                        <h3>Java Tic Tac Toe</h3>
+                       <a href="https://github.com/cbekk/my-projects/raw/main/tictactoe.jar" download="TicTacToe.jar"><i class="fas fa-download"></i></a>
+                    </div>
+                </div>
+                <div class="work">
+                    <img src="model.png">
+                    <div class="layer">
+                        <h3>Machine Learning Problem</h3>
+                        <a href="https://github.com/cbekk/My-Projects/blob/main/DefineAndSolveMLProblem.ipynb"><i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+            </div>
+            <a href="https://github.com/cbekk/My-Projects/tree/main" class="btn">See More</a>
+        </div>
+    </div>
+
+    <!-- CONTACT -->
+    <div id="contact">
+        <div class="container">
+            <div class="row">
+                <div class="contact-left">
+                    <h1 class="sub-title"><span>C</span>ontact <span>M</span>e</h1>
+                    <p><i class="fas fa-paper-plane"></i> nardic@vcu.edu</p>
+                    <p><i class="fas fa-phone-square-alt"></i> 1-(804)-385-3382</p>
+                    <div class="social-icons">
+                        <a href="https://www.instagram.com/criss_beck/"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://www.linkedin.com/in/christiana-nardi"><i
+                                class="fa-brands fa-linkedin"></i></a>
+                    </div>
+                    <a href="Christiana Nardi, BTT Resume.pdf" download class="btn btn2">View Résumé</a>
+                </div>
+                <div class="contact-right">
+                    <form name="submit">
+                        <input type="name" name="name" placeholder="Your Name" required>
+                        <input type="email" name="email" placeholder="Your Email" required>
+                        <textarea name="message" rows="6" placeholder="Your Message"></textarea>
+                        <button type="submit" class="btn btn2">Submit</button>
+                    </form>
+                    <span id="msg"></span>
+                </div>
+            </div>
+        </div>
+        <div class="maker">
+            <p>Website author Christiana Nardi, 2024</p>
+        </div>
+    </div>
+    <script>
+        var sidemenu = document.getElementById("sidemenu");
+
+        function openmenu() {
+            sidemenu.style.right = "0";
+        }
+        function closemenu() {
+            sidemenu.style.right = "-200px";
+        }
+
+    </script>
+    <button id="scroll-up" onclick="scrollUp()"><i class="fa-solid fa-caret-up"></i></button>
+</body>
+
+<script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycby4eznkckNlnueeaNNnxJQk29_NFxZgiIRKRbeGjWdfFOrCxGCqm1LMCwDtciT-Bp0H/exec'
+    const form = document.forms['submit']
+    const msg = document.getElementById("msg");
+
+    form.addEventListener('submit', e => {
+        e.preventDefault()
+        fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+            .then(response => {
+                msg.innerHTML = "Message Delivered!"
+                setTimeout(function () {
+                    msg.innerHTML = ""
+                }, 5000)
+                form.reset();
+            })
+            .catch(error => console.error('Error!', error.message))
+    })
+
+    function scrollUp() {
+        window.scrollTo({ top: 0, behavior: 'smooth' })
+    }
+
+    window.addEventListener('scroll', function () {
+        var scrollBtn = document.getElementById('scroll-up');
+
+        if (window.scrollY > 20 || window.pageYOffset > 20) {
+            scrollBtn.classList.add('visible');
+        } else {
+            scrollBtn.classList.remove('visible');
+        }
+    });
+
+</script>
+
+</html>
